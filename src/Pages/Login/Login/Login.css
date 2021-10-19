@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1000px) {
+    /* For desktop: */
+    
+   .login{
+       width: 50%;
+   }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    /* For desktop: */
+    
+   .login{
+       width: 25%;
+   }
+  }
