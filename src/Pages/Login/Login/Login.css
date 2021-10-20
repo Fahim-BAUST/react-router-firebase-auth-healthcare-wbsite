@@ -1,15 +1,39 @@
-@media only screen and (max-width: 1000px) {
-    /* For desktop: */
-    
-   .login{
-       width: 50%;
-   }
-  }
 
-  @media only screen and (min-width: 1000px) {
-    /* For desktop: */
-    
-   .login{
-       width: 25%;
-   }
-  }
+/* mobile device */
+@media only screen and  (max-width: 480px){
+    .login{ 
+         width: 60%;
+    }
+
+}
+
+/* iPads, Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .login{ 
+         width: 40%;
+    }
+
+}
+
+/* Small screens, laptops */
+@media only screen and (min-width: 769px) and (max-width:1024px){
+    .login{ 
+         width: 25%;
+    }
+
+}
+
+/* Desktops, large screens */
+@media only screen and (min-width: 1025px) and (max-width:1200px){
+    .login{ 
+         width: 22%;
+    }
+
+}
+/* Extra large screens, TV */
+@media only screen and (min-width: 1201px) {
+    .login{ 
+         width: 20%;
+    }
+
+}

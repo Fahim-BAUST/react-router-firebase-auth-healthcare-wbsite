@@ -4,6 +4,8 @@ import 'animate.css';
 import { Grid, LinearProgress, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Service from '../../Services/Service/Service';
+import GalleryImage from '../GalleryImage/GalleryImage';
+
 
 const Home = () => {
     const [service, setService] = useState([]);
@@ -34,6 +36,12 @@ const Home = () => {
                     }
                 </Grid>
             </Box>
+
+
+            <GalleryImage></GalleryImage>
+
+
+
 
         </div>
     );

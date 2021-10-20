@@ -9,6 +9,8 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
 
+    const [loc, setLoc] = useState(false);
+
     const auth = getAuth();
 
     const signInUsingGoogle = () => {
@@ -18,9 +20,13 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setUser(result.user);
-                setError('');
+                setError("Successfully Signed in");
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => {
+                setIsLoading(false)
+                setLoc(true);
+
+            });
     }
 
     const signInUsingEamilAndPass = (email, password) => {
@@ -32,12 +38,16 @@ const useFirebase = () => {
             }).catch(error => {
                 setError(error.message);
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => {
+                setIsLoading(false);
+                setLoc(true);
+            });
 
     }
 
 
     const createUserWithEmailandPass = (email, password, name) => {
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user);
@@ -46,7 +56,11 @@ const useFirebase = () => {
             }).catch(error => {
                 setError(error.message);
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => {
+                setIsLoading(false);
+                setLoc(true);
+
+            });
 
     }
 
@@ -70,6 +84,7 @@ const useFirebase = () => {
             else {
                 setUser({})
             }
+            setLoc(true);
             setIsLoading(false);
         });
         return () => unsubscribed;
@@ -86,6 +101,7 @@ const useFirebase = () => {
         user,
         isLoading,
         error,
+        loc,
         signInUsingGoogle,
         logOut,
         signInUsingEamilAndPass,

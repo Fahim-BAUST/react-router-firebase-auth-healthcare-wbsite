@@ -1,8 +1,9 @@
 import { Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Doctor = (props) => {
-    const { name, img, designation } = props.doctor;
+    const { id, name, img, designation } = props.doctor;
     return (
         <div>
             <Card className="text-center">
@@ -23,7 +24,11 @@ const Doctor = (props) => {
                     </Typography>
                 </CardContent>
 
-                <Button sx={{ marginLeft: 2, marginBottom: 2 }} variant="contained" color="success" size="small"> Appoint </Button>
+                <Link className="text-decoration-none" to={`/doctor/${id}`}>
+                    <Button sx={{ marginLeft: 2, marginBottom: 2 }} variant="contained" color="success" size="small"> Appoint </Button>
+                </Link>
+
+
 
             </Card>
 

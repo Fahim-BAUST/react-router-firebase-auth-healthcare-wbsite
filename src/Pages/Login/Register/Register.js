@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 const Register = () => {
-    const { createUserWithEmailandPass } = useAuth();
+    const { createUserWithEmailandPass, error } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -37,6 +37,8 @@ const Register = () => {
 
                 <label htmlFor="inputPassword4" style={{ fontSize: "13px" }} className="form-label fw-bold ">Password</label>
                 <input onBlur={handlePasswordChange} type="password" className="form-control border border-secondary" id="inputPassword4" />
+
+                <label htmlFor="inputPassword4" style={{ fontSize: "15px" }} className="form-label fw-bold text-danger ">{error}</label>
 
                 <button type="submit" style={{ backgroundColor: "goldenrod", color: "black" }} className="btn fw-bold col-xl-12 col-12 col-md-12 mt-3">Continue</button>
             </form>

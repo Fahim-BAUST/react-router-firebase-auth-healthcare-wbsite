@@ -29,7 +29,7 @@ const Header = () => {
                                         fontWeight: "bolder"
                                     }}
                                 >
-                                    Home
+                                    <i className="fas fa-home"></i>   Home
                                 </NavLink>
 
                             </li>
@@ -44,7 +44,7 @@ const Header = () => {
 
                                     }}
                                 >
-                                    Services
+                                    <i className="fab fa-servicestack"></i>   Services
                                 </NavLink>
                             </li>
 
@@ -59,7 +59,7 @@ const Header = () => {
 
                                     }}
                                 >
-                                    Doctors
+                                    <i className="fas fa-user-md"></i>  Doctors
                                 </NavLink>
                             </li>
                             <li className="nav-item">
@@ -72,14 +72,14 @@ const Header = () => {
                                         fontWeight: "bolder"
                                     }}
                                 >
-                                    Our Team
+                                    <i className="fas fa-users"></i> Our Team
                                 </NavLink>
                             </li>
                         </ul>
                         <form className="d-flex align-items-center">
                             {user?.displayName && <span className="me-2">Hello {user.displayName}</span>}
 
-                            {user?.email || user?.displayName ? <button onClick={logOut} className="btn btn-outline-info" type="submit">Logout</button> : <NavLink to="/login"><button className="btn btn-outline-info" type="submit">Login</button></NavLink>}
+                            {user?.email || user?.displayName ? <button onClick={logOut} className="btn btn-outline-info" type="submit"><i className="fas fa-sign-out-alt"></i> Logout</button> : <NavLink to="/login"><button className="btn btn-outline-info" type="submit"><i className="fas fa-sign-in-alt"></i> Login</button></NavLink>}
                         </form>
                     </div>
                 </div>
