@@ -9,7 +9,6 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
 
-    const [loc, setLoc] = useState(false);
 
     const auth = getAuth();
 
@@ -23,9 +22,7 @@ const useFirebase = () => {
                 setError("Successfully Signed in");
             })
             .finally(() => {
-                setIsLoading(false)
-                setLoc(true);
-
+                setIsLoading(false);
             });
     }
 
@@ -40,7 +37,6 @@ const useFirebase = () => {
             })
             .finally(() => {
                 setIsLoading(false);
-                setLoc(true);
             });
 
     }
@@ -48,17 +44,33 @@ const useFirebase = () => {
 
     const createUserWithEmailandPass = (email, password, name) => {
         setIsLoading(true);
+
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('At least one uppercase character');
+            return;
+
+        }
+        if (!/(?=.*[a-z])/.test(password)) {
+            setError('At least one lowercase character');
+            return;
+
+        }
+        if (!/(?=.*\d)/.test(password)) {
+            setError('At least one digit');
+            return;
+
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user);
                 updateUserProfile(name);
-                setError("Create User Succesfully, Please Login");
+                setError("Create User Succesfully,");
             }).catch(error => {
                 setError(error.message);
             })
             .finally(() => {
                 setIsLoading(false);
-                setLoc(true);
 
             });
 
@@ -84,7 +96,7 @@ const useFirebase = () => {
             else {
                 setUser({})
             }
-            setLoc(true);
+
             setIsLoading(false);
         });
         return () => unsubscribed;
@@ -101,7 +113,6 @@ const useFirebase = () => {
         user,
         isLoading,
         error,
-        loc,
         signInUsingGoogle,
         logOut,
         signInUsingEamilAndPass,

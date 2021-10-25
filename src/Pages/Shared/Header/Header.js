@@ -79,7 +79,7 @@ const Header = () => {
                         <form className="d-flex align-items-center">
                             {user?.displayName && <span className="me-2">Hello {user.displayName}</span>}
 
-                            {user?.email || user?.displayName ? <button onClick={logOut} className="btn btn-outline-info" type="submit"><i className="fas fa-sign-out-alt"></i> Logout</button> : <NavLink to="/login"><button className="btn btn-outline-info" type="submit"><i className="fas fa-sign-in-alt"></i> Login</button></NavLink>}
+                            {user?.displayName ? <button onClick={logOut} className="btn btn-outline-info" type="submit"><i className="fas fa-sign-out-alt"></i> Logout</button> : <NavLink to="/login"><button className="btn btn-outline-info" type="submit"><i className="fas fa-sign-in-alt"></i> Login</button></NavLink>}
                         </form>
                     </div>
                 </div>
